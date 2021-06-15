@@ -1,0 +1,73 @@
+<!-- LAB-->
+<!-- Title: Pushing employee details to array as an object -->
+<!-- Author:Sanket Pandey@1NT18IS136 -->
+<!-- Date:04-06-2021 -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Employee data</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src=src.js defer></script>
+        </head>
+        <Style>
+
+        </Style>
+    <body>
+        <h1>Enter Employee Details</h1>
+        <div name = "frm">
+            <label>Name</label><br>
+            <input type="text" id="name" placeholder="Enter name" autocomplete="off"><br><br>
+            <label>Id</label><br>
+            <input type="text" id="id" placeholder="Enter id" autocomplete="off"><br><br>
+            <label>Contact No</label><br>
+            <input type="text" id="num" placeholder="Enter your contact num" autocomplete="off"><br><br>
+            <label>Email-id</label><br>
+            <input type="email" id="eml" placeholder="Enter email" autocomplete="off"><br><br>
+            <label>Designation</label><br>
+            <input type="text" id="desig" placeholder="Enter Designation" autocomplete="off"><br><br>
+            <label>Salary</label><br>
+            <input type="text" id="sal" placeholder="Enter Salary" autocomplete="off"><br><br>
+            <label>Skill</label><br>
+            <input type="text" id="skill" placeholder="enter skill sets"autocomplete="off"><br><br>
+            <button onclick="onClick()" id="button">Submit</button>
+        </div> 
+        <h3>Search here!</h3>
+        <div id="search">
+        <label>Enter Id</label><br>
+        <input type="text" id ="id1"><br>
+        <button onclick="search()" id="button1">Search</button><br><br><br>
+    </div>
+    </body>
+</html>
+
+const arry =[];
+
+function onClick(){
+    var obj={};
+    obj.Name = document.getElementById('name').value;
+    obj.Id = document.getElementById('id').value;
+    obj.Phone_no = document.getElementById('num').value;
+    obj.Email = document.getElementById('eml').value;
+    obj.Desig = document.getElementById('desig').value;
+    obj.Salary= document.getElementById('sal').value;
+    const chars = document.getElementById('skill').value;
+    let words = chars.split(',');
+    obj.skill = words;
+    arry.push(obj)
+    console.log(arry)
+}
+
+
+function search()
+{
+    var emp_id = document.getElementById('id1').value;
+    for(let i=0;i<arry.length;i++){
+        if(arry[i].Id==emp_id){
+            console.log(arry[i])
+        }
+    }
+}
